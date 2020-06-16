@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Employee Managment</title>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="img/employee.png">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+<body>
+  <div >
+    <div class="employee-container">
+      <span>Full name :</span>
+      <input type="text" name="name" id="name">
+      <p id="nameError"> </p>
+    </div>
+    <div class="employee-container">
+        <span>Gender :</span>
+        <div id="gender">
+            <div class="form-check-inline">
+                <label class="form-check-label" for="radio1">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Male
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="radio2">
+                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Female
+                </label>
+              </div>
+          </div>
+        <p id="nameError"> </p>
+      </div>
+    <div class="employee-container">
+      <span>Phone :</span>
+      <input type="text" id="class">
+      <p id="classError"></p>
+    </div>
+    <div class="employee-container">
+      <span>Email :</span>
+      <input type="text" id="physic">
+      <p id="physicError"></p>
+    </div>
+    <div class="employee-container">
+      <span>Location:</span>
+      <input type="text" id="chemical">
+      <p id="chemicalError"></p>
+    </div>
+    <div class="employee-container">
+        <span>Department:</span>
+        <div  id="department" > 
+            <select class="form-control" id="select-department">
+                <option>IT</option>
+                <option>Accountant</option>
+                <option>Sale</option>
+                <option>Human Resourse</option>
+            </select><br>
+            <a data-toggle="modal" data-target="#myModal">Add more department</a>
+        </div>
+        
+        <p id="chemicalError"></p>
+      </div>
+  </div>
+  <div class="employee-container">
+    <button onclick="addRow()">Add</button>
+  </div>
+  <div class="employee-container">
+    <p id="title">Employee List</p>
+  </div>
+  <div class="employee-container">
+    
+    <table id="employees">
+      <tr>
+        <th>ID</th>
+        <th>FULL NAME</th>
+        <th>TITLE</th>
+        <th>EMAIL</th>
+        <th>LOCATION</th>
+        <th>DEPARTMENT</th>
+        <th>Trung Bình</th>
+      </tr>
+    </table>
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Department</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <input type="text" class="form-control" id="moreDeparment" >
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button"  onclick="addDepartment()" >Add</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  <script src="js/myScript.js"></script>
+</body>
+
+</html>
