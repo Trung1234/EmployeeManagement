@@ -39,20 +39,66 @@ function addRow(){
         }
     }    
 }
-function addDepartment(){
-    var ddl = document.getElementById("select-department");
-    var option = document.createElement("OPTION");
-    option.innerHTML = document.getElementById("moreDeparment").value;
-    option.value = document.getElementById("moreDeparment").value;
-    ddl.options.add(option);
+function addEmployee(){
+    resetError();
+    var isValid = true;
+    var tableRows = $('#employee tr').length;
+    var name = $("#name").val();
+    var radioGender = $("input[name='gender']:checked").val();
+    var phone = $("#phone").val();
+    var email = $("#email").val();
+    var location = $("#location").val();
+    var department =  $('#select-department option:selected').text();
+    if(isEmpty(name)){
+        isValid = false;
+        $("#nameError").css("color", "red").text("Please input name");
+    }
+    if(isEmpty(phone)){
+        isValid= false;
+        $("#phoneError").css("color", "red").text("Please input phone number");
+    }
+    if(isEmpty(email)){
+        isValid = false;
+        $("#emailError").css("color", "red").text("Please input email");
+    }
+    if(!isEmail(email)){
+        isValid = false;
+        $("#emailError").css("color", "red").text("Invalid email");
+    }
+    if(!isPhoneNumber(phone)){
+        isValid= false;
+        $("#phoneError").css("color", "red").text("Invalid phone number");
+    }
+}
+function addDepartment(){   
+    var department = document.getElementById("moreDeparment").value;
+    if(!isEmpty(department)){
+        var ddl = document.getElementById("select-department");
+        var option = document.createElement("OPTION");
+        option.innerHTML = department;
+        option.value = department;
+        ddl.options.add(option);
+    }   
     $('#myModal').modal('toggle');
 }
 function resetError(){
     $("#nameError").empty();
-    $("#classError").empty();
+    $("#titleError").empty();
     $("#mathError").empty();
-    $("#physicError").empty();
-    $("#chemicalError").empty();
+    $("#phoneError").empty();
+    $("#emailError").empty();
+}
+
+function isEmpty(val){
+    return (val === undefined || val == null || val.length <= 0) ? true : false;
+}
+function isEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+function isPhoneNumber(number) {
+    var phoneno = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+    return (phoneno.test(number)) ? true : false;
 }
 function caculate(){
     
