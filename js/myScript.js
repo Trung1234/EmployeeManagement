@@ -46,7 +46,7 @@ function addEmployee(){
     var chkArray = [];
 
     var birthday = $('#birth').val();
-    var tableRows = $('#employee tr').length;
+    var tableRows = $('#employees tr').length;
     /* look for all checkboes that have a class 'chk' attached to it and check if it was checked */
 	$(".chk:checked").each(function() {
 		chkArray.push($(this).val());
@@ -73,7 +73,8 @@ function addEmployee(){
             +'<td class="">'
             + language 
             +'</td>'
-            +'<td class="">'+'Action'+
+            +'<td class="">'+
+            '<a  href="#" onclick="deleteEmployee('+tableRows+')">Delete</a>'+
             '</td></tr>');
         });
     }
@@ -97,23 +98,6 @@ function isEmpty(val){
     return (val === undefined || val == null || val.length <= 0) ? true : false;
 }
 
-function caculate(){
-    
-    var rows = $('#employee tr').length;
-    for (var i = 1; i<= rows; i++) {
-        var math = Number($("#row"+i).find("td.math").text());
-        var physic = Number($("#row"+i).find("td.physic").text());
-        var chemical = Number($("#row"+i).find("td.chemical").text());
-        var average  = ((math+physic+chemical)/3).toFixed(2);
-        $("#row"+i).find("td.average").text(average );
-    }
-}
-function findExcellent(){
-    var rows = $('#employee tr').length;
-    for (var i = 1; i<= rows; i++) {
-        var average  = Number($("#row"+i).find("td.average").text());
-        if(average >=8){
-            $("#row"+i).css("background-color", "red");
-        }
-    }
+function deleteEmployee(row) {
+    document.getElementById("employees").deleteRow(row);
 }
