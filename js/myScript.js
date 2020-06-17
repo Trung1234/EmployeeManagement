@@ -34,7 +34,7 @@ function addEmployee(){
             + language 
             +'</td>'
             +'<td class="">'+
-            '<a  href="#" onclick="deleteEmployee('+tableRows+')">Delete</a>'+
+            '<a  href="#" onclick="deleteEmployee(this)">Delete</a>'+
             '</td></tr>');
         });
     }
@@ -58,6 +58,7 @@ function isEmpty(val){
     return (val === undefined || val == null || val.length <= 0) ? true : false;
 }
 
-function deleteEmployee(row) {
-    document.getElementById("employees").deleteRow(row);
+function deleteEmployee(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("employees").deleteRow(i);
 }
