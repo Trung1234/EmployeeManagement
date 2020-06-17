@@ -42,13 +42,21 @@ function addRow(){
 function addEmployee(){
     resetError();
     var isValid = true;
-    var tableRows = $('#employee tr').length;
     var name = $("#name").val();
     var chkArray = [];
+
+    var birthday = $('#birth').val();
+    var tableRows = $('#employee tr').length;
     /* look for all checkboes that have a class 'chk' attached to it and check if it was checked */
 	$(".chk:checked").each(function() {
 		chkArray.push($(this).val());
-	});
+    });
+    var language = "";
+    var i;
+    for (i = 0; i < chkArray.length; i++) {
+        language  += chkArray[i] + "<br>";
+    }
+
     var radioGender = $("input[name='gender']:checked").val();
     var department =  $('#select-department option:selected').text();
     if(isEmpty(name)){
@@ -56,7 +64,18 @@ function addEmployee(){
         $("#nameError").css("color", "red").text("Please input name");
     }
     if(isValid){
-        
+        $(document).ready(function () {
+            $('#employees').append('<tr id="row'+tableRows+'">'
+            +'<td>'+name +'</td>'
+            +'<td class="">'+ department+'</td>'
+            +'<td class="">'+birthday+'</td>'
+            +'<td class="">'+radioGender+'</td>'
+            +'<td class="">'
+            + language 
+            +'</td>'
+            +'<td class="">'+'Action'+
+            '</td></tr>');
+        });
     }
 }
 function addDepartment(){   
