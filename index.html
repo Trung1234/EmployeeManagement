@@ -18,8 +18,26 @@
       <p id="nameError"> </p>
     </div>
     <div class="employee-container">
+      <span>Date of birth :</span>
+      <input type="date" id="birthday" name="birthday" value="2013-01-08">
+    </div>
+    <div class="employee-container">
+      <span>Language: </span>
+      <form id="language">
+        <label class="checkbox-inline">
+          <input type="checkbox" value="English" class="chk">English
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="Japanese" class="chk">Japanese
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="Vietnamese" class="chk"> Vietnamese
+        </label>
+      </form>
+    </div>
+    <div class="employee-container">
         <span>Gender :</span>
-        <div id="gender">
+        <form id="gender">
             <div class="form-check-inline">
                 <label class="form-check-label" for="radio1">
                   <input type="radio" class="form-check-input" id="radio1" name="gender" value="Male" checked> Male
@@ -31,27 +49,9 @@
                 </label>
               </div>
           </div>
-      </div>
-      <div class="employee-container">
-        <span>Job Title :</span>
-        <input type="text" id="title">
-        <p id="titleError"></p>
-      </div>
-    <div class="employee-container">
-      <span>Phone :</span>
-      <input type="text" id="phone">
-      <p id="phoneError"></p>
+      </form>
     </div>
-    <div class="employee-container">
-      <span>Email :</span>
-      <input type="text" id="email">
-      <p id="emailError"></p>
-    </div>
-    <div class="employee-container">
-      <span>Location :</span>
-      <input type="text" id="location">
-      <p id="locationlError"></p>
-    </div>
+
     <div class="employee-container">
         <span>Department:</span>
         <div id="department" > 
@@ -74,14 +74,11 @@
   <div class="employee-container">  
     <table id="employees">
       <tr>
-        <th>ID</th>
-        <th>FULL NAME</th>
-        <th>GENDER</th>
-        <th>TITLE</th>
-        <th>PHONE </th>
-        <th>EMAIL</th>
-        <th>LOCATION</th>
-        <th>DEPARTMENT</th>
+        <th>Name </th>
+        <th>Department</th>
+        <th>Date of birth </th>
+        <th>Language</th>
+        <th>Action</th>
       </tr>
     </table>
     <!-- Modal -->

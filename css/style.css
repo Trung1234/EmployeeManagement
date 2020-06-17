@@ -22,17 +22,22 @@ button {
   }
   
   .employee-container > span{
-    width: 10%;
+    width: 15%;
     float: left;
     margin: 5px 0px;
   }
   .employee-container > input{
-    width: 20%;
+    width: 25%;
+    float: left;
+    margin: 5px;
+  }
+  .employee-container > form{
+    width: 80%;
     float: left;
     margin: 5px;
   }
   #gender{
-    width: 20%;
+    width: 45%;
     float: left;
     margin: 5px;
   }
@@ -42,10 +47,10 @@ button {
     margin: 5px;
   }
   .employee-container >p{
-    width: 65%;
+    width: 60%;
     box-sizing: border-box;
     float: left;
-    margin: 5px;
+ 
   }
   .employee-container button{
     margin-right: 10%;
